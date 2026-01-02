@@ -1,0 +1,238 @@
+:root {
+  --bg-color: #121212;
+  --card-bg: #1e1e1e;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --accent-color: #bb86fc;
+  --income-color: #03dac6;
+  --expense-color: #cf6679;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --font-family: 'Outfit', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  margin: 30px auto;
+  width: 400px;
+  max-width: 100%;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-weight: 600;
+  font-size: 2.5rem;
+  background: linear-gradient(to right, var(--accent-color), #3700b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.balance-container {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 20px;
+  border: 1px solid #333;
+}
+
+.balance-container h4 {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.balance-container h1 {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  margin: 10px 0 0;
+}
+
+.inc-exp-container {
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  border-radius: 15px;
+  border: 1px solid #333;
+}
+
+.inc-exp-container > div {
+  flex: 1;
+  text-align: center;
+}
+
+.inc-exp-container > div:first-of-type {
+  border-right: 1px solid #333;
+}
+
+.money {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  margin: 5px 0;
+  font-weight: 600;
+}
+
+.money.plus {
+  color: var(--income-color);
+}
+
+.money.minus {
+  color: var(--expense-color);
+}
+
+h3 {
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+  margin: 40px 0 10px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.list {
+  list-style-type: none;
+  margin-bottom: 40px;
+}
+
+.list li {
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow);
+  color: var(--text-primary);
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border-left: 5px solid transparent;
+  transition: transform 0.2s ease;
+}
+
+.list li:hover {
+  transform: translateY(-2px);
+}
+
+.list li.plus {
+  border-left-color: var(--income-color);
+}
+
+.list li.minus {
+  border-left-color: var(--expense-color);
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: var(--expense-color);
+  border: 0;
+  color: #fff;
+  font-size: 14px;
+  line-height: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  right: -40px; /* Hidden initially */
+  transform: translate(0, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease, right 0.3s ease;
+}
+
+.list li:hover .delete-btn {
+  opacity: 1;
+  right: 10px; /* Show on hover */
+}
+
+/* Form Styles */
+label {
+  display: inline-block;
+  margin: 10px 0 5px;
+  color: var(--text-secondary);
+}
+
+input[type='text'],
+input[type='number'],
+select {
+  border: 1px solid #333;
+  border-radius: 8px;
+  display: block;
+  font-size: 16px;
+  padding: 12px;
+  width: 100%;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.btn {
+  cursor: pointer;
+  background: linear-gradient(to right, #3700b3, var(--accent-color));
+  box-shadow: var(--shadow);
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 16px;
+  margin: 20px 0 30px;
+  padding: 15px;
+  width: 100%;
+  border-radius: 8px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  transition: opacity 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color); 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #333; 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
